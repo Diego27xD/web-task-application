@@ -1,4 +1,4 @@
-import { Loader, Message, useToaster } from "rsuite";
+import { Loader } from "rsuite";
 import { TaskCard, type Task } from "./TaskCard";
 
 interface TaskBoardProps {
@@ -14,8 +14,6 @@ export const TaskBoard: React.FC<TaskBoardProps> = ({
   onEdit,
   onDelete,
 }) => {
-  const toaster = useToaster();
-
   if (loading) return <Loader content="Cargando tareas..." center />;
 
   /* if (tasks.length == 0) {
