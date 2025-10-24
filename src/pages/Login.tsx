@@ -38,8 +38,18 @@ const LoginPage = () => {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      await login(formValue.document, formValue.password);
+      const result = await login(formValue.document, formValue.password);
 
+      if (!result) {
+        toaster.push(
+          <Message type="error" closable>
+            {"Error al iniciar sesión"}
+          </Message>,
+          { placement: "topEnd" }
+        );
+
+        return;
+      }
       toaster.push(
         <Message type="success" closable>
           Inicio de sesión exitoso
@@ -47,9 +57,8 @@ const LoginPage = () => {
         { placement: "topEnd" }
       );
 
-      // Redirigir al home
       navigate("/home");
-    } catch (error: any) {
+    } catch (error: TypeError | any | unknown) {
       toaster.push(
         <Message type="error" closable>
           {error.message || "Error al iniciar sesión"}

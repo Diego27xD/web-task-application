@@ -12,9 +12,7 @@ export const getTaskById = async (IdTask: number) => {
     );
     return data.body;
   } catch (error) {
-    console.log(error);
     if (error instanceof AxiosError) {
-      console.log(error.response?.data);
       return error.response?.data.header.error;
     }
     throw error;
@@ -28,9 +26,7 @@ export const getAllTasks = async (IdUser: number) => {
     );
     return data.body;
   } catch (error) {
-    console.log(error);
     if (error instanceof AxiosError) {
-      console.log(error.response?.data);
       return error.response?.data.header.error;
     }
     throw error;
@@ -48,9 +44,7 @@ export const createTask = async (dataTask: TaskCreateDTO) => {
     });
     return data.body;
   } catch (error) {
-    console.log(error);
     if (error instanceof AxiosError) {
-      console.log(error.response?.data);
       return error.response?.data.header.error;
     }
     throw error;
@@ -72,9 +66,7 @@ export const updateTask = async (IdTask: number, dataTask: TaskCreateDTO) => {
     );
     return data.body;
   } catch (error) {
-    console.log(error);
     if (error instanceof AxiosError) {
-      console.log(error.response?.data);
       return error.response?.data.header.error;
     }
     throw error;
@@ -88,9 +80,7 @@ export const deleteTask = async (IdTask: number) => {
     );
     return data.body;
   } catch (error) {
-    console.log(error);
     if (error instanceof AxiosError) {
-      console.log(error.response?.data);
       return error.response?.data.header.error;
     }
     throw error;

@@ -44,7 +44,7 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
 
   login: async (document: string, password: string) => {
     const resp = await authLogin(document, password);
-    console.log(resp);
+
     if (resp?.tokenAccess) {
       SecureCookieStorageAdapter.setItem("STR", resp.tokenAccess);
     }
@@ -61,7 +61,7 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
 
   checkStatus: async () => {
     const resp = await validAuth();
-    console.log(resp);
+
     const user: User = {
       usuario: resp.usuario,
       nombreCompleto: resp.nombreCompleto,
