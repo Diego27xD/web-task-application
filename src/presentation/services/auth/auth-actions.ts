@@ -23,9 +23,7 @@ export const authLogin = async (usuario: string, password: string) => {
     );
     return returnUserLogin(data.body);
   } catch (error) {
-    console.log(error);
     if (error instanceof AxiosError) {
-      console.log(error.response?.data);
       return error.response?.data.header.error;
     }
     throw error;
@@ -48,9 +46,7 @@ export const authRegister = async (
     );
     return data.body;
   } catch (error) {
-    console.log(error);
     if (error instanceof AxiosError) {
-      console.log(error.response?.data);
       return error.response?.data.header.error;
     }
     throw error;
@@ -65,9 +61,7 @@ export const validAuth = async () => {
     );
     return data.body;
   } catch (error) {
-    console.log(error);
     if (error instanceof AxiosError) {
-      console.log(error.response?.data);
       return error.response?.data.header.error;
     }
     throw error;

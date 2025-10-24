@@ -68,8 +68,6 @@ const HomePage = () => {
 
   const handleCreateTask = async (task: Task) => {
     try {
-      console.log("Tarea...");
-      console.log(task);
       setLoading(true);
       const result = await createTask({
         titulo: task.titulo,
@@ -97,7 +95,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const taskData: TaskUpdateDTO = await getTaskById(task.IdTarea);
-      console.log(taskData);
+
       setEditingTask(task);
       setFormValue({
         IdTarea: taskData.IdTarea,

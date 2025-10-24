@@ -8,9 +8,7 @@ export class SecureCookieStorageAdapter {
       document.cookie = `${key}=${encodeURIComponent(
         value
       )}; ${expires}; path=/; Secure; SameSite=Strict;`;
-    } catch (error) {
-      console.error("Error setting cookie:", error);
-    }
+    } catch (error) {}
   }
 
   static getItem(key: string): string | null {
@@ -27,7 +25,6 @@ export class SecureCookieStorageAdapter {
       }
       return null;
     } catch (error) {
-      console.error("Error getting cookie:", error);
       return null;
     }
   }
@@ -36,7 +33,7 @@ export class SecureCookieStorageAdapter {
     try {
       document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; Secure; SameSite=Strict;`;
     } catch (error) {
-      console.error("Error deleting cookie:", error);
+      throw error;
     }
   }
 }
