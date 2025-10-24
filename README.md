@@ -1,73 +1,80 @@
-# React + TypeScript + Vite
+---
+# 🖥️ README – Frontend (Task Manager Web)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🖥️ Task Manager Web
 
-Currently, two official plugins are available:
+Interfaz web desarrollada en **React + TypeScript + RSuite** para la gestión de tareas.
+Permite registrar usuarios, iniciar sesión, crear, editar y eliminar tareas en una pizarra visual tipo *Post-it*.
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías Utilizadas
 
-## React Compiler
+- **React + TypeScript**
+- **RSuite UI Library**
+- **Axios**
+- **React Router DOM**
+- **Zustand** (gestión de estado global)
+- **Custom Hooks (useFetch)** para consumo de API
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚙️ Arquitectura del proyecto: Clean Architecture
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+src/
+├── assets/ # Recursos estáticos (imágenes, íconos, estilos)
+│
+├── components/ # Componentes UI reutilizables
+│ ├── HeaderBar/
+│ ├── TaskBoard/
+│ ├── TaskCard/
+│ ├── TaskModal/
+│ └── Common/
+│
+├── pages/ # Vistas principales de la aplicación
+│ ├── LoginPage/
+│ ├── RegisterPage/
+│ └── HomePage/
+│
+├── presentation/ # Capa lógica del frontend
+│ ├── config/ # Configuración global del proyecto (API base, constantes)
+│ ├── hooks/ # Custom hooks (useFetch, etc.)
+│ ├── interfaces/ # Tipos e interfaces TypeScript (DTOs, entidades)
+│ ├── services/ # Servicios que interactúan con el backend (Axios)
+│ └── store/ # Estado global (Zustand)
+│
+│
+└── util/ # Funciones utilitarias, helpers y manejo de errores
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ⚙️ Configuración del Entorno
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1️⃣ Instalar dependencias:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2️⃣ Crear un archivo .env con la URL del backend:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+VITE_API_URL=http://localhost:3000
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+▶️ Ejecutar el proyecto
+
+```bash
+npm run dev
 ```
+
+La aplicación estará disponible en: http://localhost:5173
+
+🧠 Características Principales
+
+🔐 Login / Registro de usuarios.
+
+💾 Gestión completa de tareas (CRUD).
+
+🧭 Protección de rutas con PrivateRoute y validación de sesión.
+
+⚡ Integración directa con la API REST (Axios + Zustand).
+
+🔄 Hook useFetch reutilizable para cargar catálogos (categorías, prioridades, estatus).
+
+MIT © 2025 – Task Manager WEB
