@@ -1,10 +1,8 @@
 ---
 # 🖥️ README – Frontend (Task Manager Web)
 
-# 🖥️ Task Manager Web
-
 Interfaz web desarrollada en **React + TypeScript + RSuite** para la gestión de tareas.
-Permite registrar usuarios, iniciar sesión, crear, editar y eliminar tareas en una pizarra visual tipo *Post-it*.
+Permite registrar usuarios, iniciar sesión, crear, editar y eliminar tareas*.
 ---
 
 ## 🚀 Tecnologías Utilizadas
@@ -41,7 +39,6 @@ src/
 │ ├── interfaces/ # Tipos e interfaces TypeScript (DTOs, entidades)
 │ ├── services/ # Servicios que interactúan con el backend (Axios)
 │ └── store/ # Estado global (Zustand)
-│
 │
 └── util/ # Funciones utilitarias, helpers y manejo de errores
 
