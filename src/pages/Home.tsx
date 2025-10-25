@@ -4,7 +4,6 @@ import { HeaderBar } from "../components/HeaderBar";
 import { TaskBoard } from "../components/TaskBoard/TaskBoard";
 import { TaskModal } from "../components/TaskBoard/TaskModal";
 
-// ⬅️ Tus funciones CRUD
 import { useFetch } from "../presentation/hooks/useFetch";
 import { useAuthStore } from "../presentation/store/useAuthStore";
 import type { Task } from "../components/TaskBoard/TaskCard";
