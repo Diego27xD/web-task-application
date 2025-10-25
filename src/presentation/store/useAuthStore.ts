@@ -18,13 +18,11 @@ export interface AuthState {
 }
 
 export const useAuthStore = create<AuthState>()((set, get) => ({
-  // Properties
   status: "checking",
   token: undefined,
   user: undefined,
   error: undefined,
 
-  // Actions
   changeStatus: async (token?: string, user?: User, msg?: string) => {
     if (!user || !token) {
       set({
